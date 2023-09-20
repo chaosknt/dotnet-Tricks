@@ -15,7 +15,7 @@
     }
 }
 
-2- builder.Services.HttpClientsConfiguration(builder.Configuration); (deberia ir en la capa de aplicacion
+2- builder.Services.HttpClientsConfiguration(builder.Configuration); (deberia ir en la capa de presentacion)
 
 3- 
 
