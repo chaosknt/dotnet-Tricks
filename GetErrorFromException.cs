@@ -1,12 +1,14 @@
-private string GetErrorFromException(Exception exception, string messageTemplate)
-        {
-                messageTemplate += $"\\nStack Trace: {exception.StackTrace}";
-                var innerException = exception.InnerException;
-                while (innerException != null)
-                {
-                    messageTemplate += $"\\nInner Exception: {innerException.Message}";
-                    innerException = innerException.InnerException;
-                }
+private static string GetErrorFromException(Exception exception, string messageTemplate)
+{
+    StringBuilder stringBuilder = new StringBuilder(messageTemplate);
+    stringBuilder.AppendLine($"Stack Trace: {exception.StackTrace}");
 
-                return messageTemplate;
-        }
+    var innerException = exception.InnerException;
+    while (innerException != null)
+    {
+        stringBuilder.AppendLine($"Inner Exception: {innerException.Message}");
+        innerException = innerException.InnerException;
+    }
+
+    return stringBuilder.ToString();
+}
