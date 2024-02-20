@@ -1,0 +1,12 @@
+Al darle play a una app en .net el navegador lanza el error  Your connection is not private NET::ERR_CERT_COMMON_NAME_INVALID.
+
+Solucion:
+
+-en la barra de navegacion de chroem: chrome://flags/
+-marcar enabled: Allow invalid certificates for resources loaded from localhost
+
+
+
+
+
+Fuente: https://stackoverflow.com/questions/44066709/your-connection-is-not-private-neterr-cert-common-name-invalid
