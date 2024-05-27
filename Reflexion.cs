@@ -43,3 +43,16 @@ public class Test3
         Console.WriteLine(e);
     }
 }
+
+/************************************
+
+Cambiar el valor de una propiedad por reflexion
+
+ private CustomerProfile CreateCustomerProfileWithInconsistentState(StateCustomerType? val = StateCustomerType.Inconsistent)
+ {
+     var customer = _fixture.Create<CustomerProfile>();
+
+     typeof(CustomerProfile).GetProperty(nameof(CustomerProfile.StateCustomerType)).SetValue(customer, val);
+
+     return customer;
+ }
