@@ -56,3 +56,15 @@ Cambiar el valor de una propiedad por reflexion
 
      return customer;
  }
+
+ private static void SetValueUsingReflection(object obj, string propertyName, object value)
+{
+    Type type = obj.GetType();
+
+    PropertyInfo prop = type.GetProperty(propertyName, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+
+    if (prop != null && prop.CanWrite)
+    {
+        prop.SetValue(obj, value);
+    }
+}
