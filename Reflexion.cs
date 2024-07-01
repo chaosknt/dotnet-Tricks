@@ -68,3 +68,16 @@ Cambiar el valor de una propiedad por reflexion
         prop.SetValue(obj, value);
     }
 }
+
+Cambiar el valor de una propiedad por reflexion pasando el nombre de la propiedad por parametro
+
+
+private static void SetPropertyValueNull(object obj, string propertyName, object propVal = null)
+{
+    PropertyInfo propertyInfo = obj.GetType().GetProperty(propertyName);
+
+    if (propertyInfo != null)
+    {
+        propertyInfo.SetValue(obj, propVal);
+    }
+}
