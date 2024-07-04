@@ -81,3 +81,29 @@ private static void SetPropertyValueNull(object obj, string propertyName, object
         propertyInfo.SetValue(obj, propVal);
     }
 }
+
+//Obtener el valor de una propiedad cuando el objeto es de tipo Dynamic
+
+private static object GetPropertyValue(object obj, string propertyName)
+{
+    if (obj is ExpandoObject expandoObj)
+    {
+        IDictionary<string, object> dictionary = expandoObj;
+        if (dictionary.ContainsKey(propertyName))
+        {
+            return dictionary[propertyName];
+        }
+        else
+        {
+            throw new ArgumentException($"La propiedad '{propertyName}' no existe en el objeto ExpandoObject.");
+        }
+    }
+
+    throw new NotImplementedException();
+}
+
+//Obtener el valor de una propiedad cuando el objeto es de tipo Object
+ private static object GetPropertyValue(object obj, string propertyName)
+ {
+     return obj.GetType().GetProperty(propertyName).GetValue(obj, null);
+ }
